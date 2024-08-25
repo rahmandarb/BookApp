@@ -1,45 +1,43 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-4" *ngFor="let book of bookList">
-        <div class="card mb-4" (click)="selectBook(book)">
-          <div class="card-body">
-            <h5 class="card-title">{{ book.name }}</h5>
-            <p class="card-text">Price: ${{ book.price }}</p>
-            <p class="card-text"><small class="text-muted">Book ID: {{ book.id }}</small></p>
-          </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let book of bookList">
+      <div class="card mb-4" (click)="selectBook(book)">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.name }}</h5>
+          <p class="card-text">Price: ${{ book.price }}</p>
+          <p class="card-text"><small class="text-muted">Book ID: {{ book.id }}</small></p>
         </div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="col text-center">
-        <button class="btn btn-primary" (click)="loadBooks()">Load More</button>
-      </div>
-    </div>
-  
-    <div *ngIf="selectedBook; else noBookSelected" class="row mt-4">
-        <div class="col-md-12">
-          <h4>Selected Book</h4>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{ selectedBook.name }}</h5>
-              <p class="card-text">Price: ${{ selectedBook.price }}</p>
-              <p class="card-text"><small class="text-muted">Book ID: {{ selectedBook.id }}</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- This template will be displayed when no book is selected -->
-      <ng-template #noBookSelected>
-        <div class="row mt-4">
-          <div class="col-md-12">
-            <h4>No Book Selected</h4>
-            <p>Please select a book from the list.</p>
-          </div>
-        </div>
-      </ng-template>
-      
-   
   </div>
-  
+
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-primary" (click)="loadBooks()">Load More</button>
+    </div>
+  </div>
+
+  <div *ngIf="selectedBook; else noBookSelected" class="row mt-4">
+    <div class="col-md-12">
+      <h4>Selected Book</h4>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedBook.name }}</h5>
+          <p class="card-text">Price: ${{ selectedBook.price }}</p>
+          <p class="card-text"><small class="text-muted">Book ID: {{ selectedBook.id }}</small></p>
+          <button class="btn btn-danger" (click)="clearSelection()">Clear Selection</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- This template will be displayed when no book is selected -->
+  <ng-template #noBookSelected>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h4>No Book Selected</h4>
+        <p>Please select a book from the list.</p>
+      </div>
+    </div>
+  </ng-template>
+</div>
